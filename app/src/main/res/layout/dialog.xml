@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="280dp"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/dialogButton1"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="@drawable/btn_sort"
+            android:text="По релевантности"
+            android:textColor="@color/sort"
+            android:gravity="left"
+            android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/dialogButton2"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="@drawable/btn_sort"
+            android:textColor="@color/sort"
+            android:text="По дате публикации ↓"
+            android:gravity="left"
+            android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/dialogButton3"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="@drawable/btn_sort"
+            android:textColor="@color/sort"
+            android:text="По дате публикации ↑"
+            android:gravity="left"
+            android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/dialogButton4"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="@drawable/btn_sort"
+            android:textColor="@color/sort"
+            android:text="По дате подачи заявки ↓"
+            android:gravity="left"
+            android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/dialogButton5"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="@drawable/btn_sort"
+            android:textColor="@color/sort"
+            android:text="По дате подачи заявки ↑"
+            android:gravity="left"
+            android:textAllCaps="false"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
