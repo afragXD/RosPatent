@@ -10,7 +10,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import org.json.JSONArray
@@ -36,14 +35,14 @@ class SearchResultsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_search_results)
 
         createRecyclerView()
-        editSearch = findViewById<EditText>(R.id.editSearch)
+        editSearch = findViewById(R.id.editSearch)
         editSearch.setText(SearchRep.inp)
         search()
         btnBack = findViewById(R.id.btnBack)
         btnBack.setOnClickListener(View.OnClickListener {
             finish()
         })
-        btnSort = findViewById<ImageButton>(R.id.btnSort)
+        btnSort = findViewById(R.id.btnSort)
         btnSort.setOnClickListener(View.OnClickListener {
             var dialog = Dialog()
 
@@ -62,7 +61,7 @@ class SearchResultsActivity : AppCompatActivity() {
         searchAdapter.notifyDataSetChanged()
     }
     private fun search(){
-        btnSearch = findViewById<ImageButton>(R.id.btnSearch)
+        btnSearch = findViewById(R.id.btnSearch)
         btnSearch.setOnClickListener{
             if(editSearch.text.isNullOrBlank()){
                 Toast.makeText(this, "Введите запрос", Toast.LENGTH_SHORT).show()
@@ -86,7 +85,7 @@ class SearchResultsActivity : AppCompatActivity() {
             Log.d("MyLog", e.toString())
         }
         val requestQueue = Volley.newRequestQueue(this)
-        val stringRequest = object: JsonObjectRequest(Request.Method.POST, url, postData, { response ->
+        val stringRequest = object: JsonObjectRequest(Method.POST, url, postData, { response ->
             try {
                 for (index in 0 until response.getJSONArray("hits").length()){
                     val buf = SearchClass()

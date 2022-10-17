@@ -25,7 +25,7 @@ class PatentActivity : AppCompatActivity() {
     private lateinit var description : TextView
     private lateinit var textLink : TextView
 
-    private val key = "26a213594e7f4f6e8cd89064d885ea93"
+    //private val key = "26a213594e7f4f6e8cd89064d885ea93"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

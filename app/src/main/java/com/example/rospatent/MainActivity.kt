@@ -8,7 +8,6 @@ import android.view.View
 import android.widget.*
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
-import com.android.volley.Request
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
@@ -31,13 +30,13 @@ class MainActivity : AppCompatActivity() {
         search()
     }
     private fun search(){
-        editSearch = findViewById<EditText>(R.id.editSearch)
-        btnSearch = findViewById<ImageButton>(R.id.btnSearch)
+        editSearch = findViewById(R.id.editSearch)
+        btnSearch = findViewById(R.id.btnSearch)
         btnSearch.setOnClickListener{
             if(editSearch.text.isNullOrBlank()){
                 Toast.makeText(this, "Введите запрос", Toast.LENGTH_SHORT).show()
             }else{
-                progressBar = findViewById<ProgressBar>(R.id.progressBar)
+                progressBar = findViewById(R.id.progressBar)
                 progressBar.visibility = View.VISIBLE
                 SearchRep.inp = editSearch.text.toString()
                 post(editSearch.text.toString())
@@ -57,7 +56,7 @@ class MainActivity : AppCompatActivity() {
             Log.d("MyLog", e.toString())
         }
         val requestQueue = Volley.newRequestQueue(this)
-        val stringRequest = object: JsonObjectRequest(Request.Method.POST, url, postData, { response ->
+        val stringRequest = object: JsonObjectRequest(Method.POST, url, postData, { response ->
             try {
                 for (index in 0 until response.getJSONArray("hits").length()){
                     val buf = SearchClass()
@@ -70,7 +69,7 @@ class MainActivity : AppCompatActivity() {
                         buf.filingDate = response.getJSONArray("hits").getJSONObject(index).getJSONObject("common").getJSONObject("application").getString("filing_date")
                     }
                     try {
-                        var ja: JSONArray = response.getJSONArray("hits").getJSONObject(index)
+                        val ja: JSONArray = response.getJSONArray("hits").getJSONObject(index)
                             .getJSONObject("biblio").getJSONObject("ru").getJSONArray("patentee")
                         for (i in 0 until ja.length()){
                             buf.patentee += "${ja.getJSONObject(i).getString("name")}, "
